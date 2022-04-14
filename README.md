@@ -2,6 +2,7 @@
 
 Nome dos integrantes: 
 - Crhistian Felipe da Silva
+- Douglas Vitor Farias Silva
 - Pessoa 2
 - Pessoa 3
 
