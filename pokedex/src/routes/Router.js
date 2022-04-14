@@ -6,17 +6,15 @@ import { Home } from "../pages/home/Home";
 import { Pokedex } from "../pages/pokedex/Pokedex";
 import { PokemonDetails } from "../pages/pokemon-details/PokemonDetails";
 
-
 export const Router = () => {
-    
   return (
     <BrowserRouter>
-    <Navbar/>
-          <Routes>
+      <Navbar />
+      <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/pokedex" element={<Pokedex />} />
         <Route exact path="/pokedex/details" element={<PokemonDetails />} />
-        <Route exact path="*" element={<ErrorPage/>}/>
+        <Route exact path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
