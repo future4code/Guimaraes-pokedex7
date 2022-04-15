@@ -22,7 +22,7 @@ export const CardPokemon = (props) => {
           className="btn btn-primary me-3"
           onClick={() => goToPokedex(navigate)}
         >
-          Ir à Pokedex
+        Adicionar à Pokedex
         </button>
         <button
           className="btn btn-primary"
