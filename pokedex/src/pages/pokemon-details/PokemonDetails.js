@@ -1,10 +1,10 @@
-import React from 'react'
-import { StylePokemonDetails } from './style'
+import React from "react";
+import { StylePokemonDetails } from "./style";
 
 export const PokemonDetails = () => {
   return (
     <StylePokemonDetails>
-     <h1> Página de Detalhes dos Pokemons</h1> 
-      </StylePokemonDetails>
-  )
-}
+      <h1> Página de Detalhes dos Pokemons</h1>
+    </StylePokemonDetails>
+  );
+};

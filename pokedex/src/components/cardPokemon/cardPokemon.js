@@ -1,7 +1,6 @@
 import React from "react";
-import "./style.css";
+import "./style.css"
 import { useNavigate } from "react-router-dom";
-import { goToPokedex } from "../../routes/Coordinator";
 import { goToPokemonDetails } from "../../routes/Coordinator";
 
 export const CardPokemon = (props) => {
@@ -20,9 +19,9 @@ export const CardPokemon = (props) => {
       <div className="card-body">
         <button
           className="btn btn-primary me-3"
-          onClick={() => goToPokedex(navigate)}
+          onClick={() => props.addToPokedex(props.pokemonList)}
         >
-        Adicionar à Pokedex
+          Adicionar à Pokedex
         </button>
         <button
           className="btn btn-primary"

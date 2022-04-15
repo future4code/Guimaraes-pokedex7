@@ -10,6 +10,7 @@ const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
+  const [pokemonListPokedex, setPokemonListPokedex] = useState([])
 
   useEffect(() => {
     const fetch = async () => {
@@ -35,8 +36,8 @@ const App = () => {
 
   return (
     <div>
-      <ContextPokemonList.Provider value={[pokemonList, loading, error]}>
-        <ContextPokedex.Provider>
+      <ContextPokemonList.Provider value={[pokemonList,setPokemonList, loading, error]}>
+        <ContextPokedex.Provider value={[pokemonListPokedex, setPokemonListPokedex]}>
         <Router/>
         </ContextPokedex.Provider>
       </ContextPokemonList.Provider>     

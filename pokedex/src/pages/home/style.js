@@ -1,17 +1,16 @@
-import styled from "styled-components"
-import fundoHome from "../../assets/img/pokemon2.jpg"
- 
+import styled from "styled-components";
+import fundoHome from "../../assets/img/pokemon2.jpg";
+
 export const StyledHome = styled.div`
-height: 88vh;
-overflow: scroll;
-height: 88vh;
-background-image: url(${fundoHome});
+  overflow: scroll;
+  height: 88vh;
+  background-image: url(${fundoHome});
 
-.container-fluid{
+  .container-fluid {
     margin-left: 1rem;
-}
+  }
 
-h1{
+  h1 {
     color: #fff;
     background-color: blue;
     display: flex;
@@ -19,6 +18,5 @@ h1{
     border-radius: 30px;
     padding: 10px;
     padding-left: 50px;
-}
-`
-
+  }
+`;
