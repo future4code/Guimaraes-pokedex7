@@ -1,8 +1,6 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { goToPokedex } from "../../routes/Coordinator";
-import { goToPokemonDetails } from "../../routes/Coordinator";
 
 export const CardPokedex = (props) => {
   const navigate = useNavigate();

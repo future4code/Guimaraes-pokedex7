@@ -4,9 +4,12 @@ import fundoHome from "../../assets/img/pokemon2.jpg"
 export const StyledHome = styled.div`
 height: 88vh;
 overflow: scroll;
+height: 88vh;
 background-image: url(${fundoHome});
-padding-left: 2rem;
-padding-right: 2rem;
+
+.container-fluid{
+    margin-left: 1rem;
+}
 
 h1{
     color: #fff;
