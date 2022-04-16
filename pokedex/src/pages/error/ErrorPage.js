@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { StyledError } from "./style";
 
 export const ErrorPage = () => {
   return (
-    <h1>Página de erro</h1>
-  )
-}
+    <StyledError>
+      <h1>Página de erro</h1>
+    </StyledError>
+  );
+};
