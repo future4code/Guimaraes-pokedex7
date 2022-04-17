@@ -14,25 +14,33 @@ export const Home = () => {
   const addToPokedex = (newPokemon) => {
     const newListPokemon = [...pokemonListPokedex];
     newListPokemon.push(newPokemon);
-    setPokemonListPokedex(newListPokemon);
-/*     const newArrayPokemonList = pokemonList.filter((newPokemon)=> newPokemon.name !== newPokemon.name)
-    setPokemonList(newArrayPokemonList) */
-  };
- /*  console.log("adicionou pokemons", pokemonListPokedex);
-  console.log("depois de clicar na funcao", pokemonList) */
+    setPokemonListPokedex(newListPokemon)
 
+    const removePokemon = pokemonList
+    for(let i = 0; i < pokemonList.length; i ++){
+      if (pokemonList[i] === newPokemon){
+        pokemonList.splice(i, 1)
+      }
+    }
+
+  }; 
+   
   const cardPokemon =
     pokemonList &&
-    pokemonList.map((pokemon) => {
+    pokemonList.map((pokemon, index) => {
       return (
         <CardPokemon
-          key={pokemon.id}
+          key={index}
+          image={pokemon.sprites.other.dream_world.front_default}
+          name={pokemon.name}
+          type={pokemon.types[0].type.name}
           pokemonList={pokemon}
           addToPokedex={addToPokedex}
         />
       );
     });
 
+    
   return (
     <StyledHome>
       <div className="contayner my-5 py-5">
