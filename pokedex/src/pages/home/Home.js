@@ -15,14 +15,12 @@ export const Home = () => {
     const newListPokemon = [...pokemonListPokedex];
     newListPokemon.push(newPokemon);
     setPokemonListPokedex(newListPokemon)
-
-    const removePokemon = pokemonList
+    
     for(let i = 0; i < pokemonList.length; i ++){
       if (pokemonList[i] === newPokemon){
         pokemonList.splice(i, 1)
       }
     }
-
   }; 
    
   const cardPokemon =

@@ -8,9 +8,9 @@ export const CardPokemon = (props) => {
   
   const navigate = useNavigate();
 
-  const style = `card me-2 mb-2 ${props.type}`
+  const style = "thumb-container me-2 mb-2 " + props.type
 
-  
+   
   return (
     <div className={style} style={{ width: "18rem" }}>
       <img
@@ -22,7 +22,7 @@ export const CardPokemon = (props) => {
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
       </div>
-          
+      <small>Type: {props.type} </small>
       <div className="card-body">
         <button
           className="btn btn-primary me-3"
