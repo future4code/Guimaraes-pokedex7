@@ -22,7 +22,7 @@ export const CardPokemon = (props) => {
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
       </div>
-      <small>Type: {props.type} </small>
+      <h6>Tipo: <small>{props.type} </small></h6>
       <div className="card-body">
         <button
           className="btn btn-primary me-3"

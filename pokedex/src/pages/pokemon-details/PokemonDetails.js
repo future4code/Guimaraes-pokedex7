@@ -5,16 +5,7 @@ import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
 
 
 export const PokemonDetails = () => {
-
-  const cardPokemonDetails = ()=>{
-        return (
-        <>
-           
-        </>
-    ) 
-}
-
-
+  
   return (
     <StylePokemonDetails>
       <div className="container-fluid">

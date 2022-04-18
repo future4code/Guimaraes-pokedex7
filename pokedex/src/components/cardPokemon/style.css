@@ -18,6 +18,9 @@
 
 }
 
+small{
+  text-transform: capitalize;
+}
 
 
 .rock {
