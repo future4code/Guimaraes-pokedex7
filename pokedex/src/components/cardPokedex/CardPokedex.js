@@ -1,13 +1,15 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { goToPokemonDetailsPokedex } from "../../routes/Coordinator";
 
 export const CardPokedex = (props) => {
   const navigate = useNavigate();
 
   const { name, sprites } = props.pokemon;
 
+  const goToPokemonDetails = (name) =>{
+    navigate(`${name}`)
+  }
   return (
     <div className="card me-2 mb-2" style={{ width: "18rem" }}>
       <img
@@ -24,7 +26,7 @@ export const CardPokedex = (props) => {
         <button className="btn btn-primary me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
         <button
           className="btn btn-primary"
-          onClick={() => goToPokemonDetailsPokedex (navigate)}
+          onClick={() => goToPokemonDetails (name)}
         >
           Ver Detalhes
         </button>
