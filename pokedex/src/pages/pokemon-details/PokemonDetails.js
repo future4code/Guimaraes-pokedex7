@@ -1,62 +1,120 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { StylePokemonDetails } from "./style";
-import { ContextPokemonList } from "../../context/Context";
-import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
+import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 
+export const PokemonDetails = (name) => {
 
-export const PokemonDetails = () => {
+  const [pokemonList, setPokemonList, loading, error] = useContext(ContextPokemonList);
+
+  const [pokemonListPokedex, setPokemonListPokedex] = useContext(ContextPokedex);
   
-  return (
-    <StylePokemonDetails>
-      <div className="container-fluid">
-      <div className="topo">
-      <h1> Nome do Pokemon</h1>
-      <button> Add a Pokedex</button>
-
-      </div>
-     
-      <div className="foto-frente">
-      <img
-        src={"https://img.olhardigital.com.br/wp-content/uploads/2016/02/20160226125130-860x450.jpg"}
-        className="card-img-top"
-        alt="Imagem Pokemon"
-      />
-      </div>
-      <div  className="foto-costa">
-      <img
-        src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT2akpl8H3qydXsHMfD9tvtsxZqgq-HJHDyjV-OQLrnjPZd2g-RnjmkKhWEYdOQozAiXE&usqp=CAU"}
-        className="card-img-top"
-        alt="Imagem Pokemon"
-      />
-      </div>
-
-      <div  className="poderes">
-          <h4>Poderes</h4>
-          <p> <b>hp:</b> 60 </p>
-          <p><b>attack:</b> 62 </p>
-          <p><b>defense:</b> 63 </p>
-          <p><b>special-attack: </b> 80 </p>
-          <p><b>special-defense: </b> 80 </p>
-          <p><b>speed: </b> 60 </p>
-      </div>
+    const addToPokedexDetails = (newPokemon) => {
+      const newListPokemon = [...pokemonListPokedex];
+      newListPokemon.push(newPokemon);
+      setPokemonListPokedex(newListPokemon)
       
-      <div className="grass-poison">
-          <p className="grass">grass</p>
-          <p className="poison">poison</p>
-      </div>
+      for(let i = 0; i < pokemonList.length; i ++){
+        if (pokemonList[i] === newPokemon){
+          pokemonList.splice(i, 1)
+        }
+      }
+    };
 
-      <div  className="ataques">
-          <h4>Principais ataques</h4>
-          <p> <b>hp:</b> 60 </p>
-          <p><b>attack:</b> 62 </p>
-          <p><b>defense:</b> 63 </p>
-          <p><b>special-attack: </b> 80 </p>
-          <p><b>special-defense: </b> 80 </p>
-          <p><b>speed: </b> 60 </p>
-      </div>
-      
-  </div>
-    </StylePokemonDetails>
+  
+  console.log("console pagina detalhes", pokemonList);
+  
+  console.log("depois da funcao lista pokedex", pokemonListPokedex,)
+  console.log("depois da funcao lista pokemon", pokemonList)
 
-  );
+  const pokemonDetailsPage = 
+    pokemonList && pokemonList.map((pokemon)=>{
+      return (
+        <>
+          <div className="container">
+            <div className="row align-items-start">
+              <div className="topo">
+                <h1>{pokemon.name} </h1>
+              </div>
+            </div>
+            <div className="topo">
+              <h3> Tipo: {pokemon.types[0].type.name} </h3>
+            </div>
+
+            <div className="row align-items-center">
+              <div className="col">
+                <div className="card">
+                  <img
+                    className="image"
+                    src={pokemon.sprites.other.dream_world.front_default}
+                    alt="Imagem Pokemon Frente"
+                  />
+                </div>
+                <div className="card">
+                  <img
+                    src={pokemon.sprites.back_default}
+                    
+                    className="image-costas"
+                    alt="Imagem Pokemon Costas"
+                  />
+                </div>
+              </div>
+              <div className="col">
+                <div className="card-detalhes">
+                
+                  <h4>Poderes</h4>
+                  <p>
+                    Hp: <small>{pokemon.stats[0].base_stat}</small>{" "}
+                  </p>
+                  <p>
+                    Attack: <small>{pokemon.stats[1].base_stat}</small>{" "}
+                  </p>
+                  <p>
+                    Defense: <small>{pokemon.stats[2].base_stat}</small>{" "}
+                  </p>
+                  <p>
+                    Special-attack: <small>{pokemon.stats[3].base_stat}</small>{" "}
+                  </p>
+                  <p>
+                    Special-defense: <small>{pokemon.stats[4].base_stat}</small>{" "}
+                  </p>
+                  <p>
+                  Speed: <small>{pokemon.stats[5].base_stat}</small>{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="card-detalhes">
+                <h4>Principais Ataques</h4>
+                  <p>
+                  <small>{pokemon.moves[0].move.name}</small>
+                  </p>
+                  <p>
+                  <small>{pokemon.moves[1].move.name}</small>
+                  </p>
+                  <p>
+                  <small>{pokemon.moves[2].move.name}</small>
+                  </p>
+                  <p>
+                  <small>{pokemon.moves[3].move.name}</small>
+                  </p>    
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="button">
+            <button className="btn btn-primary" onClick={() => addToPokedexDetails(pokemonList)}>Add à Pokedex</button>
+          </div>
+        </>
+      );
+    }
+    )
+
+
+    
+ 
+       
+  return <StylePokemonDetails>
+    {pokemonDetailsPage}
+
+  </StylePokemonDetails>;
 };

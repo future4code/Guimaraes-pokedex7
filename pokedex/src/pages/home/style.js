@@ -19,4 +19,10 @@ export const StyledHome = styled.div`
     padding: 10px;
     padding-left: 50px;
   }
+
+  .container-button button{
+    margin-left: 1rem;
+  }
+
+
 `;

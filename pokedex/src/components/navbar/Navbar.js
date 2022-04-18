@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { goToHome } from "../../routes/Coordinator";
 import { goToPokedex } from "../../routes/Coordinator";
-import { goToPokemonDetails } from "../../routes/Coordinator";
+import { goToPokemonDetailsHome } from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import { goBack } from "../../routes/Coordinator";
 
@@ -48,7 +48,7 @@ export const Navbar = () => {
               <li className="nav-item">
                 <button
                   className="btn btn-primary me-2"
-                  onClick={() => goToPokemonDetails(navigate)}
+                  onClick={() => goToPokemonDetailsHome(navigate)}
                 >
                   Detalhes do Pokemon
                 </button>

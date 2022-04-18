@@ -11,28 +11,39 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [pokemonListPokedex, setPokemonListPokedex] = useState([])
+  const [nextUrl, setNextUrl] = useState()
+  const [prevUrl, setPrevUrl] = useState()
+
+  const getPokemons = async () =>{
+    setLoading(true);
+    try{
+      const { data } =await axios.get(`${BASE_URL}?limit=30`);
+      const newArrayPokemons = [];
+      setNextUrl(data.next)
+      setPrevUrl(data.previous)
+  
+      for (let pokemon of data.results) {
+        const pokemonDetails = (await axios.get(`${pokemon.url}`)).data;
+        newArrayPokemons.push(pokemonDetails);
+    } 
+   setPokemonList(newArrayPokemons) 
+   
+  /*  setPokemonList(newArrayPokemons.sort((a,b)=> a.id > b.id ? 1 : -1))
+   */
+  } catch(error){
+      setError(error);
+      console.log(error)
+    } finally {
+      setLoading(false);
+
+  }
+
+}
 
   useEffect(() => {
-    const fetch = async () => {
-      setLoading(true);
-      try {
-        const { data } =await axios.get(`${BASE_URL}?offset=20&limit=30`);
-        const newArrayPokemons = [];
+  getPokemons()
 
-        for (let pokemon of data.results) {
-          const pokemonDetails = (await axios.get(`${pokemon.url}`)).data;
-          newArrayPokemons.push(pokemonDetails);
-        }
-        setPokemonList(newArrayPokemons);
-      } catch (error) {
-        setError(error);
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetch();
-  }, []);
+  }, [BASE_URL]);
 
   return (
     <div>

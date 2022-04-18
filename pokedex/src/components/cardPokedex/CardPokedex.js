@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { goToPokemonDetails } from "../../routes/Coordinator";
+import { goToPokemonDetailsPokedex } from "../../routes/Coordinator";
 
 export const CardPokedex = (props) => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const CardPokedex = (props) => {
         <button className="btn btn-primary me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
         <button
           className="btn btn-primary"
-          onClick={() => goToPokemonDetails(navigate)}
+          onClick={() => goToPokemonDetailsPokedex (navigate)}
         >
           Ver Detalhes
         </button>

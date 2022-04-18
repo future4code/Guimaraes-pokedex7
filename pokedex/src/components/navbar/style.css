@@ -7,4 +7,10 @@
 
 .nav-item{
     cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+button{
+    width:15rem;
+
 }
