@@ -7,7 +7,7 @@ import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 
 export const Home = () => {
   
-  const [pokemonList, setPokemonList, loading, error] = useContext(ContextPokemonList);
+  const[pokemonList,setPokemonList, loading, error, setUrl, nextUrl, prevUrl] = useContext(ContextPokemonList);
 
   const [pokemonListPokedex, setPokemonListPokedex] = useContext(ContextPokedex);
 
@@ -23,8 +23,6 @@ export const Home = () => {
     }
   }; 
    
-
-
   const cardPokemon =
     pokemonList &&
     pokemonList.map((pokemon, index) => {
@@ -40,7 +38,8 @@ export const Home = () => {
       );
     });
 
-    
+    console.log("clicou na funcao pra adicionar na home", pokemonListPokedex)
+
   return (
     <StyledHome>
       <div className="contayner my-5 py-5">
@@ -57,8 +56,16 @@ export const Home = () => {
           </div>
         </div>
         <div className="container-button ">
-        <button className="btn btn-danger">Anterior</button>
-          <button className="btn btn-danger">Próxima</button>
+          
+        <button className="btn btn-danger" onClick={()=>{ 
+          setPokemonList([])
+           setUrl(prevUrl)}
+        }
+         >Anterior</button>
+          <button className="btn btn-danger"
+          onClick={()=> {
+            setPokemonList([])
+            setUrl(nextUrl)}}>Próxima</button>
         </div>
       </div>
     </StyledHome>

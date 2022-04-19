@@ -2,12 +2,9 @@ import styled from "styled-components";
 import fundoPokedexDetails from "../../assets/img/pokemon2.jpg";
 
 export const StylePokemonDetails = styled.div`
-display: flex;
-  background-image: url(${fundoPokedexDetails});
   overflow: scroll;
-  justify-content: center;
-flex-direction: column;
-min-height: 90vh;
+  height: 88vh;
+  background-image: url(${fundoPokedexDetails});
 
   .card{
     width: 12rem;
@@ -30,9 +27,8 @@ min-height: 90vh;
 
   .topo h1{
     display: flex;
-    font-size: 4rem;
+    font-size: 3.5rem;
     padding: 5px;
-    margin-top: 2px;
     border-radius: 6px;
     border-top-right-radius:0;
     border-bottom-right-radius:0;
@@ -40,12 +36,14 @@ min-height: 90vh;
     color: #000;
     background-color: #fff;
     font-family: 'Paytone One', sans-serif;
+    text-transform: capitalize;
+    margin-top: 1rem;
+
   }
   .topo h3{
     display: flex;
     font-size: 2rem;
     padding: 5px;
-    margin-top: 2px;
     border-radius: 6px;
     border-top-right-radius:0;
     border-bottom-right-radius:0;
@@ -54,6 +52,7 @@ min-height: 90vh;
     background-color: #fff;
     font-family: 'Paytone One', sans-serif;
     width: max-content;
+    text-transform: capitalize;
 
   }
 .button{
@@ -82,8 +81,10 @@ h4{
 p{
   margin-left: 1rem;
 }
-.container{
-  background-color: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+.container-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .btn{
@@ -93,10 +94,8 @@ p{
   font-family: 'Paytone One', sans-serif;
   font-size: 1.2rem;
 }
-
 small{
   color: red;
 }
-
 `
 

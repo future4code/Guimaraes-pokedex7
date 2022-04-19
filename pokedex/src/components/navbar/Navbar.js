@@ -46,12 +46,6 @@ export const Navbar = () => {
                 </button>
               </li>
               <li className="nav-item">
-                <button
-                  className="btn btn-primary me-2"
-                  onClick={() => goToPokemonDetailsHome(navigate)}
-                >
-                  Detalhes do Pokemon
-                </button>
               </li>
               <li className="nav-item">
                 <button

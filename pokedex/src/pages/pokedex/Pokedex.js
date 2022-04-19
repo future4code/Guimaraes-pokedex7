@@ -20,6 +20,7 @@ export const Pokedex = () => {
     }
   };
 
+
   const cardPokedex = pokemonListPokedex.map((pokemon) => {
     return (
       <CardPokedex
