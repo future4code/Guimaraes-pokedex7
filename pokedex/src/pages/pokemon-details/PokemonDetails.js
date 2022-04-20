@@ -13,7 +13,12 @@ export const PokemonDetails = (name) => {
   const [pokemonDetails, setPokemonDetails] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
+  const [nomeBotao, setNomeBotao] = useState("Adicionar à Pokedex")
+  const [estadoBotao, setEstadoBotao] = useState(false)
+  const [classButton, setClassButton] = useState("btn btn-primary")
 
+
+ 
   useEffect(() => {
     const getPokemonDetails = async () => {
       setLoading(true);
@@ -34,6 +39,9 @@ export const PokemonDetails = (name) => {
     const newListPokemon = [...pokemonListPokedex];
     newListPokemon.push(newPokemon);
     setPokemonListPokedex(newListPokemon)
+    setEstadoBotao(!estadoBotao)
+    {estadoBotao ? setNomeBotao("Adicionar à Pokedex") : setNomeBotao("Remover da Pokedex")}
+    {estadoBotao ? setClassButton("btn btn-primary") :  setClassButton("btn btn-danger")}
 
   }
 
@@ -113,8 +121,8 @@ export const PokemonDetails = (name) => {
                   </div>
                 </div>
               </div>
-              <div className="container-button ">
-          <button className="btn btn-primary" onClick={()=> addToPokedexDetails(pokemonDetails[0]) }>Adicionar à Pokedex</button>
+              <div className="container-button">
+          <button className={classButton} onClick={()=> addToPokedexDetails(pokemonDetails[0]) }>{nomeBotao}</button>
         </div>
 
         </div>

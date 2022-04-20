@@ -15,7 +15,6 @@ export const StylePokemonDetails = styled.div`
   }
   .card:hover{
      transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 .image{
   height: 8rem;
@@ -73,7 +72,6 @@ export const StylePokemonDetails = styled.div`
 
 .card-detalhes:hover{
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 h4{
   margin: 0.5rem 0 3rem 1rem;
