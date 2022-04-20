@@ -13,7 +13,9 @@ export const Router = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/pokedex" element={<Pokedex />} />
-        <Route exact path="/pokedex/details" element={<PokemonDetails />} />
+        <Route exact path="/pokemon/:name" element={<PokemonDetails />} />
+        <Route exact path="/pokedex/:name" element={<PokemonDetails />} />
+
         <Route exact path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

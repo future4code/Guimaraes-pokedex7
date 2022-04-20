@@ -1,16 +1,23 @@
 import React from "react";
 import "./style.css"
-import { useNavigate } from "react-router-dom";
-import { goToPokemonDetails } from "../../routes/Coordinator";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 export const CardPokemon = (props) => {
 
   
   const navigate = useNavigate();
 
+  const params = useParams();
+
   const style = "thumb-container me-2 mb-2 " + props.type
 
-   
+
+  const goToPokemonDetails = (name) =>{
+    navigate(`pokemon/${name}`)
+  }
+  
+  
   return (
     <div className={style} style={{ width: "18rem" }}>
       <img
@@ -32,7 +39,7 @@ export const CardPokemon = (props) => {
         </button>
         <button
           className="btn btn-primary"
-          onClick={() => goToPokemonDetails(navigate)}
+          onClick={() => goToPokemonDetails(props.name)}
         >
           Ver Detalhes
         </button>
