@@ -37,10 +37,7 @@ export const PokemonDetails = (name) => {
 
   }
 
-  console.log("clicou na funcao adicionar na pagina Detalhes", pokemonListPokedex)
-  
-
-  const pokemonDetailsPage =
+    const pokemonDetailsPage =
     pokemonDetails &&
     pokemonDetails.map((pokemon, index) => {
       return (
@@ -117,7 +114,7 @@ export const PokemonDetails = (name) => {
                 </div>
               </div>
               <div className="container-button ">
-          <button className="btn btn-primary" onClick={()=> addToPokedexDetails(pokemonDetails) }>Adicionar à Pokedex</button>
+          <button className="btn btn-primary" onClick={()=> addToPokedexDetails(pokemonDetails[0]) }>Adicionar à Pokedex</button>
         </div>
 
         </div>

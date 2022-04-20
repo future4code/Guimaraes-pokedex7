@@ -27,10 +27,9 @@ const App = () => {
         const pokemonDetails = (await axios.get(`${BASE_URL}${pokemon.name}`)).data;
         newArrayPokemons.push(pokemonDetails);
       }
-      setPokemonList(newArrayPokemons);
-
-      /*  setPokemonList(newArrayPokemons.sort((a,b)=> a.id > b.id ? 1 : -1))
-       */
+   
+      setPokemonList(newArrayPokemons.sort(()=> (a,b)=> a.id > b.id ? 1 : -1))
+      
     } catch (error) {
       setError(error);
       console.log(error);

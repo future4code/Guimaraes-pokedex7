@@ -22,6 +22,7 @@ export const Home = () => {
       }
     }
   }; 
+
    
   const cardPokemon =
     pokemonList &&
@@ -32,13 +33,11 @@ export const Home = () => {
           image={pokemon.sprites.other.dream_world.front_default}
           name={pokemon.name}
           type={pokemon.types[0].type.name}
-          pokemonList={pokemon}
+         pokemonList={pokemon}
           addToPokedex={addToPokedex}
         />
       );
     });
-
-    console.log("clicou na funcao pra adicionar na home", pokemonListPokedex)
 
   return (
     <StyledHome>
