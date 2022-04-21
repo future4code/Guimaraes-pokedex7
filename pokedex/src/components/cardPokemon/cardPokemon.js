@@ -20,12 +20,15 @@ export const CardPokemon = (props) => {
   
   return (
     <div className={style} style={{ width: "18rem" }}>
+      <div className="card-img-poke">
       <img
         src={props.image}
-        className="card-img-top"
         alt="Imagem Pokemon"
-        height="200px"
+ 
       />
+
+      </div>
+
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
       </div>

@@ -22,7 +22,7 @@ export const Home = () => {
       }
     }
   }; 
-
+  console.log("lista pokemon pagina home", pokemonList)
   const cardPokemon =
     pokemonList &&
     pokemonList.map((pokemon, index) => {
@@ -37,6 +37,8 @@ export const Home = () => {
         />
       );
     });
+/* console.log("pagina home", "next url", nextUrl, "prev url", prevUrl) */
+
 
   return (
     <StyledHome>

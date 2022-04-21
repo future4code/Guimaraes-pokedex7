@@ -26,6 +26,7 @@ export const Pokedex = () => {
       <CardPokedex
         key={pokemon.id}
         pokemon={pokemon}
+        type={pokemon.types[0].type.name}
         removeToPokedex={RemoveToPokedex}
       />
     );
