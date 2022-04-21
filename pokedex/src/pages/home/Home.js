@@ -23,7 +23,6 @@ export const Home = () => {
     }
   }; 
 
-   
   const cardPokemon =
     pokemonList &&
     pokemonList.map((pokemon, index) => {
