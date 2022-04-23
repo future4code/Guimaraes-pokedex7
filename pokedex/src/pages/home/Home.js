@@ -3,35 +3,32 @@ import { StyledHome } from "./style";
 import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
 import { Spinner } from "../../components/spinner/Spinner";
 import { ContextPokedex, ContextPokemonList } from "../../context/Context";
+import { EmptyCard } from "../../components/emptyCard/emptyCard";
 
 
 export const Home = () => {
 
   const[pokemonList,setPokemonList,loading,error,nextUrl,prevUrl, page, setPage, totalPages, setTotalPages, ] = useContext(ContextPokemonList);
 
-  const [pokemonListPokedex, setPokemonListPokedex] = useContext(ContextPokedex);
+  const [pokedexList, setPokedexList] = useContext(ContextPokedex);
 
   const pages = page +1
-
+  
   const onPrevClickHandler = () =>{
-    console.log("volta")
     if(page > 0){
       setPage(page -1)
     }
   }
-
   const onNextClickHandler = () =>{
-    console.log("adianta")
     if(page+1 !== totalPages){
       setPage(page +1)
-
     }
   }
 
   const addToPokedex = (newPokemon) => {
-    const newListPokemon = [...pokemonListPokedex];
+    const newListPokemon = [...pokedexList];
     newListPokemon.push(newPokemon);
-    setPokemonListPokedex(newListPokemon)
+    setPokedexList(newListPokemon)
     
     for(let i = 0; i < pokemonList.length; i ++){
       if (pokemonList[i] === newPokemon){
@@ -65,7 +62,7 @@ export const Home = () => {
               {!loading && error && <h1>Houve Um Erro na Requisição</h1>}
               {!loading && pokemonList && pokemonList.length > 0 && cardPokemon}
               {!loading && pokemonList && pokemonList.length === 0 && (
-                <h1> Não Há Pokemons</h1>
+               <EmptyCard/>
               )}
             </div>
           </div>

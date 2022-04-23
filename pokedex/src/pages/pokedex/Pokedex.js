@@ -3,6 +3,8 @@ import { CardPokedex } from "../../components/cardPokedex/CardPokedex";
 import { StylePokedex } from "./style";
 import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 import { Spinner } from "../../components/spinner/Spinner";
+import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
+import { EmptyCard } from "../../components/emptyCard/emptyCard";
 
 
 export const Pokedex = () => {
@@ -11,7 +13,7 @@ export const Pokedex = () => {
 
   const RemoveToPokedex = (newPokemon) => {
     const newListPokemon = [...pokemonList];
-    newListPokemon.unshift(newPokemon);
+    newListPokemon.push(newPokemon);
         setPokemonList(sortPokemons(newListPokemon))
     for (let i = 0; i < pokemonListPokedex.length; i++) {
       if (pokemonListPokedex[i] === newPokemon) {
@@ -19,12 +21,6 @@ export const Pokedex = () => {
       }
     }
   };
-
-  const sortPokemons = (array) =>{
-    const newArray = array.sort((a, b) => Number(a.id) - Number(b.id))
-    console.log(newArray.map((p)=> p.id))
-    return newArray 
-  }
 
   const cardPokedex = pokemonListPokedex.map((pokemon) => {
     return (
@@ -37,6 +33,7 @@ export const Pokedex = () => {
     );
   });
 
+
   return (
     <StylePokedex>
     
@@ -45,10 +42,9 @@ export const Pokedex = () => {
         <div className="row">
           <div className="col-12 md-4 mb-5">
             <div className="row justify-content-center">
-            {!loading && error && <h1>Houve Um Erro na Requisição</h1>}
-            {!loading && pokemonListPokedex.length > 0 && cardPokedex}
+                       {!loading && pokemonListPokedex.length > 0 && cardPokedex}
             {!loading &&  pokemonListPokedex.length === 0 && (
-                <h1> Não Há Pokemons</h1>)}
+                <EmptyCard/>)}
               </div>
           </div>
         </div>

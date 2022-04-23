@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 
 export const CardPokemon = (props) => {
@@ -8,7 +8,6 @@ export const CardPokemon = (props) => {
   
   const navigate = useNavigate();
 
-  const params = useParams();
 
   const style = "thumb-container me-2 mb-2 " + props.type
 

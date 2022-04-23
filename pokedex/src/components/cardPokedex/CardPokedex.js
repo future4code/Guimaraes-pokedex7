@@ -26,9 +26,6 @@ export const CardPokedex = (props) => {
         <h5 className="card-title">{name}</h5> 
       </div>
       <div className="card-body">
-      <p>ID:{props.pokemon.id}</p>
-      </div>
-      <div className="card-body">
         <button className="btn btn-primary me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
         <button
           className="btn btn-primary"

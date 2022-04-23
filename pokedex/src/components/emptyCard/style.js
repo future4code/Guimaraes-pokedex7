@@ -1,22 +1,12 @@
-import styled from "styled-components"
-import fundoError from "../../assets/img/pokemon2.jpg"
- 
-export const StyledError = styled.div`
+import styled from "styled-components";
+
+export const StyleEmptyCard = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Paytone+One&display=swap');
-overflow: scroll;
-height: 88vh;
-background-image: url(${fundoError});
-justify-content: center;
-align-items: center;
 display: flex;
-
-
-div{
 width: 40rem;
 height: 20rem;
-display: flex;
 align-items: center;
-}
+ 
 
 h1 {
     color: #fff;
@@ -26,6 +16,5 @@ h1 {
     padding: 2rem;
     border-radius: 10px 20px;
   }
-`
-
-
+ 
+`;

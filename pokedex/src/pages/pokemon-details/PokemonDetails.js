@@ -5,22 +5,17 @@ import axios from "axios";
 import { BASE_URL } from "../../components/url/urlBase";
 import { Spinner } from "../../components/spinner/Spinner";
 import { ContextPokedex, ContextPokemonList } from "../../context/Context";
-import { Pokedex } from "../pokedex/Pokedex";
+import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
+
 
 export const PokemonDetails = () => {
-  const [pokemonListPokedex, setPokemonListPokedex] =
-    useContext(ContextPokedex);
-  const [
-    pokemonList,
-    setPokemonList,
-    loading,
-    error,
-    setUrl,
-    nextUrl,
-    prevUrl,
-  ] = useContext(ContextPokemonList);
 
+  
   const params = useParams();
+
+  const [pokedexList, setPokedexList] = useContext(ContextPokedex);
+  const [pokemonList,setPokemonList,loading,error,setUrl,nextUrl,prevUrl] = useContext(ContextPokemonList);
+
   const [pokemonDetails, setPokemonDetails] = useState();
   const [buttonName, setButtonName] = useState("Adicionar à Pokedex");
   const [stateButton, setStateButton] = useState(false);
@@ -40,14 +35,14 @@ export const PokemonDetails = () => {
 
   const addToPokedexDetails = (newPokemon) => {
     const newListPokemon = [...pokemonList];
-    const index = pokemonListPokedex.findIndex((i) => i.id === newPokemon.id);
+    const index = pokedexList.findIndex((i) => i.id === newPokemon.id);
     if (index < 0) {
       if (
         window.confirm(
           `O ${newPokemon.name} não está na Pokedex, deseja adicioná-lo ?`
         )
       ) {
-        setPokemonListPokedex([...pokemonListPokedex, newPokemon]);
+        setPokedexList([...pokedexList, newPokemon]);
         setStateButton(!stateButton);
         pokemonList.splice(newPokemon, 1);
         window.alert(`O ${newPokemon.name} Foi adicionado à Pokedex !!!`);
@@ -58,23 +53,15 @@ export const PokemonDetails = () => {
       ) {
         newListPokemon.push(newPokemon);
         setPokemonList(sortPokemons(newListPokemon))
-        setPokemonListPokedex(pokemonListPokedex.filter((pokemon)=>pokemon.id !== newPokemon.id))
+        setPokedexList(pokedexList.filter((pokemon)=>pokemon.id !== newPokemon.id))
         window.alert(`O ${newPokemon.name} Foi Removido da Pokedex !!!`);
       }
     }
   };
 
-
-  const sortPokemons = (array) =>{
-    const newArray = array.sort((a, b) => Number(a.id) - Number(b.id))
-    console.log(newArray.map((p)=> p.id))
-    return newArray 
-  }
-
-
   useEffect(() => {
     if (pokemonDetails) {
-      const index = pokemonListPokedex.findIndex(
+      const index = pokedexList.findIndex(
         (i) => i.id === pokemonDetails.id
       );
       if (index < 0) {
@@ -85,7 +72,7 @@ export const PokemonDetails = () => {
         setButtonName("Remover da Pokedex");
       }
     }
-  }, [pokemonDetails, pokemonListPokedex]);
+  }, [pokemonDetails, pokedexList]);
 
   const pokemonDetailsPage = pokemonDetails && (
     <div className="container">
@@ -165,6 +152,16 @@ export const PokemonDetails = () => {
   return (
     <StylePokemonDetails>
       <div className="container">{pokemonDetailsPage}</div>
+      <div className="col-12 md-4 mb-5">
+            {loading && <Spinner />}
+            <div className="row justify-content-center">
+              {!loading && error && <h1>Houve Um Erro na Requisição</h1>}
+              {!loading && pokemonDetails && pokemonDetails.length > 0 && pokemonDetailsPage}
+              {!loading && pokemonDetails && pokemonDetails.length === 0 && (
+                <h1> Não Há Pokemons</h1>
+              )}
+            </div>
+          </div>
       <div className="container-button">
         <button
           className={classButton}
