@@ -21,8 +21,15 @@ export const StyledHome = styled.div`
   }
 
   .container-button button{
-    margin-left: 1rem;
+ /*    margin-left: 1rem; */
   }
 
-
+#pages{
+  color: #fff;
+  background-color: #000;
+  font-size: 1.5rem;
+  margin: 1rem;
+  border-radius: 5px 5px; 
+  padding: 2px;
+}
 `;

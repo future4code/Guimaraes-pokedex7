@@ -4,15 +4,15 @@ import { StylePokedex } from "./style";
 import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 import { Spinner } from "../../components/spinner/Spinner";
 
+
 export const Pokedex = () => {
-  const [pokemonList, setPokemonList, loading, error] =
-    useContext(ContextPokemonList);
+  const [pokemonList, setPokemonList, loading, error] = useContext(ContextPokemonList);
   const [pokemonListPokedex] = useContext(ContextPokedex);
 
   const RemoveToPokedex = (newPokemon) => {
     const newListPokemon = [...pokemonList];
-    newListPokemon.push(newPokemon);
-    setPokemonList(newListPokemon);
+    newListPokemon.unshift(newPokemon);
+        setPokemonList(sortPokemons(newListPokemon))
     for (let i = 0; i < pokemonListPokedex.length; i++) {
       if (pokemonListPokedex[i] === newPokemon) {
         pokemonListPokedex.splice(i, 1);
@@ -20,6 +20,11 @@ export const Pokedex = () => {
     }
   };
 
+  const sortPokemons = (array) =>{
+    const newArray = array.sort((a, b) => Number(a.id) - Number(b.id))
+    console.log(newArray.map((p)=> p.id))
+    return newArray 
+  }
 
   const cardPokedex = pokemonListPokedex.map((pokemon) => {
     return (
