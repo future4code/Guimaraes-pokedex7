@@ -5,34 +5,34 @@ import { ContextPokedex } from "./context/Context";
 import { ContextPokemonList } from "./context/Context";
 import axios from "axios";
 import { BASE_URL } from "./components/url/urlBase";
-import { getPokemonData } from "./components/functions/functionGet/getPokemonData";
+import { getPokemonData } from "./components/functions/getPokemonData/getPokemonData";
+import { sortPokemons } from "./components/functions/functionSort/sortPokemons";
 
 const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-  const [pokemonListPokedex, setPokemonListPokedex] = useState([]);
+  const [pokedexList, setPokedexList] = useState([]);
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0)
+
+  const offSet = 20
 
   const itemsPerPage = 30
 
   const pagination = ({limit, total, offSet}) => {
     const currentPage = offSet ? offSet / limit + 1: 1;
     const totalPages = Math.ceil (total / limit)
-
-
-  }
+}
   
-
 
   const getPokemons = async () => {
     setLoading(true);
     try {
-      const data  = await getPokemonData(itemsPerPage, itemsPerPage * page)
-      console.log("lista pokemons", data)
+      const data  = await getPokemonData(itemsPerPage, offSet* page)
+
       const newArrayPokemons = [];
       setNextUrl(data.next);
       setPrevUrl(data.previous);
@@ -56,11 +56,6 @@ const App = () => {
     getPokemons();
   }, [page]);
 
-   const sortPokemons = (array) =>{
-     array.sort((a, b) => Number(a.id) > Number(b.id))
-     return array 
-   }
-
   return (
     <div>
      <ContextPokemonList.Provider
@@ -78,7 +73,7 @@ const App = () => {
         ]}
       >
         <ContextPokedex.Provider
-          value={[pokemonListPokedex, setPokemonListPokedex]}
+          value={[pokedexList, setPokedexList]}
         >
           <Router />
         </ContextPokedex.Provider>

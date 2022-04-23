@@ -32,4 +32,5 @@ export const StyledHome = styled.div`
   border-radius: 5px 5px; 
   padding: 2px;
 }
+
 `;
