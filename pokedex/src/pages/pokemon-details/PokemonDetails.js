@@ -2,19 +2,31 @@ import React, { useEffect, useState, useContext } from "react";
 import { StylePokemonDetails } from "./style";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { BASE_URL } from "../../components/url/urlBase";
+import { BASE_URL } from "../../components/constants/urlBase";
 import { Spinner } from "../../components/spinner/Spinner";
-import { ContextPokedex, ContextPokemonList } from "../../context/Context";
+import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
 import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
+import Swal from "sweetalert2"
 
 
 export const PokemonDetails = () => {
 
-  
   const params = useParams();
 
-  const [pokedexList, setPokedexList] = useContext(ContextPokedex);
-  const [pokemonList,setPokemonList,loading,error,setUrl,nextUrl,prevUrl] = useContext(ContextPokemonList);
+  const[
+    pokemonList,
+    setPokemonList,
+    loading,
+    error,
+    totalPages,
+    setTotalPages,
+    offset,
+    setOffset,
+    limit,
+    pokedexList,
+    setPokedexList,
+  ] = useContext(GlobalStateContext)
+
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [buttonName, setButtonName] = useState("Adicionar à Pokedex");
@@ -45,7 +57,7 @@ export const PokemonDetails = () => {
         setPokedexList([...pokedexList, newPokemon]);
         setStateButton(!stateButton);
         pokemonList.splice(newPokemon, 1);
-        window.alert(`O ${newPokemon.name} Foi adicionado à Pokedex !!!`);
+        Swal.fire(`${newPokemon.name} foi Adicionado à Pokedex`);
       }
     } else {
       if (
@@ -54,7 +66,7 @@ export const PokemonDetails = () => {
         newListPokemon.push(newPokemon);
         setPokemonList(sortPokemons(newListPokemon))
         setPokedexList(pokedexList.filter((pokemon)=>pokemon.id !== newPokemon.id))
-        window.alert(`O ${newPokemon.name} Foi Removido da Pokedex !!!`);
+        Swal.fire(`${newPokemon.name} foi Removido da Pokedex`);;
       }
     }
   };

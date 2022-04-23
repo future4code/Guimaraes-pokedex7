@@ -1,28 +1,42 @@
 import React, { useContext } from "react";
 import { CardPokedex } from "../../components/cardPokedex/CardPokedex";
 import { StylePokedex } from "./style";
-import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 import { Spinner } from "../../components/spinner/Spinner";
 import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
 import { EmptyCard } from "../../components/emptyCard/emptyCard";
+import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
+import Swal from "sweetalert2"
 
 
 export const Pokedex = () => {
-  const [pokemonList, setPokemonList, loading, error] = useContext(ContextPokemonList);
-  const [pokemonListPokedex] = useContext(ContextPokedex);
+  const[
+    pokemonList,
+    setPokemonList,
+    loading,
+    error,
+    totalPages,
+    setTotalPages,
+    offset,
+    setOffset,
+    limit,
+    pokedexList,
+    setPokedexList,
+  ] = useContext(GlobalStateContext)
+
 
   const RemoveToPokedex = (newPokemon) => {
     const newListPokemon = [...pokemonList];
     newListPokemon.push(newPokemon);
         setPokemonList(sortPokemons(newListPokemon))
-    for (let i = 0; i < pokemonListPokedex.length; i++) {
-      if (pokemonListPokedex[i] === newPokemon) {
-        pokemonListPokedex.splice(i, 1);
+        Swal.fire(`${newPokemon.name} Foi removido`)
+    for (let i = 0; i < pokedexList.length; i++) {
+      if (pokedexList[i] === newPokemon) {
+        pokedexList.splice(i, 1);
       }
     }
   };
 
-  const cardPokedex = pokemonListPokedex.map((pokemon) => {
+  const cardPokedex = pokedexList.map((pokemon) => {
     return (
       <CardPokedex
         key={pokemon.id}
@@ -42,8 +56,8 @@ export const Pokedex = () => {
         <div className="row">
           <div className="col-12 md-4 mb-5">
             <div className="row justify-content-center">
-                       {!loading && pokemonListPokedex.length > 0 && cardPokedex}
-            {!loading &&  pokemonListPokedex.length === 0 && (
+                       {!loading && pokedexList.length > 0 && cardPokedex}
+            {!loading &&  pokedexList.length === 0 && (
                 <EmptyCard/>)}
               </div>
           </div>

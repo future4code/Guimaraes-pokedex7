@@ -1,41 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StyledHome } from "./style";
 import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
 import { Spinner } from "../../components/spinner/Spinner";
-import { ContextPokedex, ContextPokemonList } from "../../context/Context";
+import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
 import { EmptyCard } from "../../components/emptyCard/emptyCard";
+import { Pagination } from "../../components/pagination/Pagination";
+import Swal from "sweetalert2"
 
 
 export const Home = () => {
 
-  const[pokemonList,setPokemonList,loading,error,nextUrl,prevUrl, page, setPage, totalPages, setTotalPages, ] = useContext(ContextPokemonList);
 
-  const [pokedexList, setPokedexList] = useContext(ContextPokedex);
 
-  const pages = page +1
+  const[
+    pokemonList,
+    setPokemonList,
+    loading,
+    error,
+    totalPages,
+    setTotalPages,
+    offset,
+    setOffset,
+    limit,
+    pokedexList,
+    setPokedexList,
+  ] = useContext(GlobalStateContext)
+
   
-  const onPrevClickHandler = () =>{
-    if(page > 0){
-      setPage(page -1)
-    }
-  }
-  const onNextClickHandler = () =>{
-    if(page+1 !== totalPages){
-      setPage(page +1)
-    }
-  }
-
   const addToPokedex = (newPokemon) => {
     const newListPokemon = [...pokedexList];
     newListPokemon.push(newPokemon);
     setPokedexList(newListPokemon)
+    Swal.fire(`${newPokemon.name} Adicionado`)
     
     for(let i = 0; i < pokemonList.length; i ++){
       if (pokemonList[i] === newPokemon){
         pokemonList.splice(i, 1)
       }
     }
-  }; 
+  };  
  
   const cardPokemon =
     pokemonList &&
@@ -47,7 +50,7 @@ export const Home = () => {
           name={pokemon.name}
           type={pokemon.types[0].type.name}
          pokemonList={pokemon}
-          addToPokedex={addToPokedex}
+        addToPokedex={addToPokedex}
         />
       );
     });
@@ -67,12 +70,8 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <div className="container-button ">    
-        <button className="btn btn-danger" onClick={()=>onPrevClickHandler()}>Anterior</button>
-        <small id="pages"> {pages} de {totalPages}</small>
-          <button className="btn btn-danger" onClick={()=>onNextClickHandler()}>Próxima</button>
-        </div>
-      </div>
+              </div>
+      {totalPages && <Pagination limit={limit} totalPages={totalPages} offset={offset} setOffset={setOffset}/>}
     </StyledHome>
   );
 };

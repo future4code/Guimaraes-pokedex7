@@ -1,6 +1,7 @@
-import { createContext } from "react";
+/* import { createContext } from "react";
 
 export const ContextPokemonList = createContext()
 
 export const ContextPokedex = createContext()
 
+ */
