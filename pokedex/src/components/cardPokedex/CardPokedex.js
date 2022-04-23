@@ -7,18 +7,21 @@ export const CardPokedex = (props) => {
 
   const { name, sprites } = props.pokemon;
 
+  const style = "thumb-container me-2 mb-2 " + props.type
+
   const goToPokemonDetails = (name) =>{
     navigate(`${name}`)
   }
   return (
-    <div className="card me-2 mb-2" style={{ width: "18rem" }}>
+    <div className={style} style={{ width: "18rem" }}>
+      <div className="card-img-poke">
       <img
         src={sprites.other.dream_world.front_default}
         className="card-img-top"
         alt="Imagem Pokemon"
-        width="18rem"
-        height="200px"
       />
+      </div>
+ 
       <div className="card-body">
         <h5 className="card-title">{name}</h5> 
       </div>

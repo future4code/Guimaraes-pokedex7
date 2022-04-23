@@ -6,10 +6,27 @@ import { ContextPokedex, ContextPokemonList } from "../../context/Context";
 
 
 export const Home = () => {
-  
-  const[pokemonList,setPokemonList, loading, error, setUrl, nextUrl, prevUrl] = useContext(ContextPokemonList);
+
+  const[pokemonList,setPokemonList,loading,error,nextUrl,prevUrl, page, setPage, totalPages, setTotalPages, ] = useContext(ContextPokemonList);
 
   const [pokemonListPokedex, setPokemonListPokedex] = useContext(ContextPokedex);
+
+  const pages = page +1
+
+  const onPrevClickHandler = () =>{
+    console.log("volta")
+    if(page > 0){
+      setPage(page -1)
+    }
+  }
+
+  const onNextClickHandler = () =>{
+    console.log("adianta")
+    if(page+1 !== totalPages){
+      setPage(page +1)
+
+    }
+  }
 
   const addToPokedex = (newPokemon) => {
     const newListPokemon = [...pokemonListPokedex];
@@ -22,7 +39,7 @@ export const Home = () => {
       }
     }
   }; 
-
+ 
   const cardPokemon =
     pokemonList &&
     pokemonList.map((pokemon, index) => {
@@ -53,17 +70,10 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <div className="container-button ">
-          
-        <button className="btn btn-danger" onClick={()=>{ 
-          setPokemonList([])
-           setUrl(prevUrl)}
-        }
-         >Anterior</button>
-          <button className="btn btn-danger"
-          onClick={()=> {
-            setPokemonList([])
-            setUrl(nextUrl)}}>Próxima</button>
+        <div className="container-button ">    
+        <button className="btn btn-danger" onClick={()=>onPrevClickHandler()}>Anterior</button>
+        <small id="pages"> {pages} de {totalPages}</small>
+          <button className="btn btn-danger" onClick={()=>onNextClickHandler()}>Próxima</button>
         </div>
       </div>
     </StyledHome>
