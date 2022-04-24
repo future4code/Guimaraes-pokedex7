@@ -7,7 +7,7 @@ Nome dos integrantes:
 Link do Surge:
 <p>Confira o Projeto Pokedex</p> https://longing-chain.surge.sh/
 
-<p>Confira o /p> <a href="https://www.freecodecamp.org/" target="_blank"> Projeto Pokedex</a>.</p>
+<p>Confira o <a href="https://longing-chain.surge.sh/" target="_blank"> Projeto Pokedex</a>.</p>
 
 
 ### Bibliotecas Utilizadas
