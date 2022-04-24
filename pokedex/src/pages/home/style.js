@@ -5,10 +5,7 @@ export const StyledHome = styled.div`
   overflow: scroll;
   height: 88vh;
   background-image: url(${fundoHome});
-
-  .container-fluid {
-    margin-left: 1rem;
-  }
+ 
 
   h1 {
     color: #fff;
@@ -20,17 +17,11 @@ export const StyledHome = styled.div`
     padding-left: 50px;
   }
 
-  .container-button button{
- /*    margin-left: 1rem; */
-  }
-
 #pages{
   color: #fff;
   background-color: #000;
-  font-size: 1.5rem;
-  margin: 1rem;
+  font-size: 1.2rem;
   border-radius: 5px 5px; 
-  padding: 2px;
-}
 
-`;
+}
+`

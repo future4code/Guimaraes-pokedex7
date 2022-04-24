@@ -1,4 +1,4 @@
-import { BASE_URL } from "../../url/urlBase";
+import { BASE_URL } from "../../constants/urlBase";
 
 export const getPokemonData = async (limit = 30,offset=0) => {
     try {
