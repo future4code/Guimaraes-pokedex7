@@ -14,12 +14,15 @@ Link do Surge: www.link.com.br
 
 O que funciona:
 - Requisição de Pokemons funcionando corretamente
+- Adicionar e remover Pokemons à Pokedex funcionam corretamente
+- Tamém adicionar ou remover Pokemons diretamente da página de detalhes funcionam
 - Requisição de Detalhes dos Pokemons funcionando corretamente
-- Requisição de Páginas funcionando 
+- Requisição de Páginas funcionando
 
 O que não funciona: 
+- Consegui implantar a requisição de Pokemons com paginação, requisitando sempre 20 pokemons com offset, porém apenas com 2 botões 1 de anterior e 1 de próxima, como são   mais de 1000 pokemons, resolvi implantar uma lógica de paginação em que requisita 30 de cada vez e permite ir para várias páginas sem ter que ser 1 por 1.
 - Não conseguimos implantar uma lógica para que quando estando em alguma página, voltar diretamente à 1 pagina, clicando no botão "Voltar à Página Inicial"
-- 
+- Também não conseguimos criar as batalhas de Pokemons
 
 
 Prints Telas 
