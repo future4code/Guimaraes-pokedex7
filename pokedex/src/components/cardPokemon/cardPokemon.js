@@ -16,21 +16,19 @@ export const CardPokemon = (props) => {
     navigate(`pokemon/${name}`)
   }
   
-  
+  console.log("props",props)
   return (
     <div className={style} style={{ width: "18rem" }}>
       <div className="card-img-poke">
       <img
         src={props.image}
         alt="Imagem Pokemon"
- 
       />
-
       </div>
-
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
       </div>
+      <h6>#Id:<small>{props.id} </small></h6>
       <h6>Tipo: <small>{props.type} </small></h6>
       <div className="card-body">
         <button

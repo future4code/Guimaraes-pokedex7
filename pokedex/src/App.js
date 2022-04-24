@@ -1,7 +1,7 @@
 import "./App.css";
 import React from 'react'
 import { Router } from "./routes/Router"
-import { GlobalState } from "./global/GlobalState"
+import { GlobalState } from "./global/globalState/GlobalState"
 
 
 const App = () => {
@@ -10,9 +10,7 @@ const App = () => {
   return (
 
     <GlobalState>
-  
         <Router />
-
     </GlobalState>
   )
 };

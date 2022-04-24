@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { StyledHome } from "./style";
 import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
 import { Spinner } from "../../components/spinner/Spinner";
-import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
 import { EmptyCard } from "../../components/emptyCard/emptyCard";
 import { Pagination } from "../../components/pagination/Pagination";
 import Swal from "sweetalert2"
@@ -36,7 +36,7 @@ export const Home = () => {
       }
     }
   };  
- 
+
   const cardPokemon =
     pokemonList &&
     pokemonList.map((pokemon, index) => {
@@ -48,6 +48,7 @@ export const Home = () => {
           type={pokemon.types[0].type.name}
          pokemonList={pokemon}
         addToPokedex={addToPokedex}
+        id={pokemon.id}
         />
       );
     });

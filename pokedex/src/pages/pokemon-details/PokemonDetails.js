@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../components/constants/urlBase";
 import { Spinner } from "../../components/spinner/Spinner";
-import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
 import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
 import Swal from "sweetalert2";
 import { goToPokedex } from "../../routes/Coordinator";
