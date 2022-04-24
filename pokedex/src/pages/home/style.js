@@ -2,8 +2,11 @@ import styled from "styled-components";
 import fundoHome from "../../assets/img/pokemon2.jpg";
 
 export const StyledHome = styled.div`
+margin: 0;
+padding: 0;
   overflow: scroll;
   height: 88vh;
+  width: 100vw;
   background-image: url(${fundoHome});
  
 

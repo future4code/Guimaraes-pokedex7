@@ -55,9 +55,9 @@ export const Home = () => {
 
   return (
     <StyledHome>
-      <div className="contayner my-5 py-5">
+      <div className="contayner my-1 py-1">
         <div className="row">
-          <div className="col-12 md-4 mb-5">
+          <div className="col-12 md-1 mb-1">
             {loading && <Spinner />}
             <div className="row justify-content-center">
               {!loading && error && <h1>Houve Um Erro na Requisição</h1>}
