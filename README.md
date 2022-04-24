@@ -6,6 +6,8 @@ Nome dos integrantes:
 
 Link do Surge:
 <p>Confira o Projeto Pokedex</p> https://longing-chain.surge.sh/
+
+
 ### Bibliotecas Utilizadas
 - Axios
 - Bootstrap
