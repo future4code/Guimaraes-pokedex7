@@ -4,8 +4,8 @@ Nome dos integrantes:
 - Crhistian Felipe da Silva
 - Douglas Vitor Farias Silva
 
-Link do Surge: https://longing-chain.surge.sh/
-<p>Confira o Projeto Pokedex</p> <a href="https://longing-chain.surge.sh/" target="_blank">/a>
+Link do Surge:
+<p>Confira o Projeto Pokedex</p> https://longing-chain.surge.sh/
 ### Bibliotecas Utilizadas
 - Axios
 - Bootstrap
