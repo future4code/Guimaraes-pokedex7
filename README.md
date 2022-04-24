@@ -4,7 +4,7 @@ Nome dos integrantes:
 - Crhistian Felipe da Silva
 - Douglas Vitor Farias Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: https://longing-chain.surge.sh/
 ### Bibliotecas Utilizadas
 - Axios
 - Bootstrap
@@ -23,8 +23,6 @@ O que não funciona:
 - Consegui implantar a requisição de Pokemons com paginação, requisitando sempre 20 pokemons com offset, porém apenas com 2 botões 1 de anterior e 1 de próxima, como são   mais de 1000 pokemons, resolvi implantar uma lógica de paginação em que requisita 30 de cada vez e permite ir para várias páginas sem ter que ser 1 por 1.
 - Não conseguimos implantar uma lógica para que quando estando em alguma página, voltar diretamente à 1 pagina, clicando no botão "Voltar à Página Inicial"
 - Também não conseguimos criar as batalhas de Pokemons
-- Por Alguma lógica desconhecida, na hora de criar a build ele não aceita os 6 cards de pokemons para formar uma linha exata, sempre fica com apenas 4
-
 
 Prints Telas 
 ![print-tela](https://user-images.githubusercontent.com/89948060/164949219-c7122b11-387b-4917-a406-6cb7e5d529ea.jpg)
