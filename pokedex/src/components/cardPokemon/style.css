@@ -19,11 +19,6 @@
   border: solid ;
 }
 
-img{
-  height: 10rem;
-  margin-left: 1rem;
-  width: 10rem;
-}
 
 .card-body {
   display: flex;
