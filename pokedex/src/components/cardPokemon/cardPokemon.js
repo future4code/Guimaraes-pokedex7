@@ -16,9 +16,8 @@ export const CardPokemon = (props) => {
     navigate(`pokemon/${name}`)
   }
   
-  console.log("props",props)
   return (
-    <div className={style} style={{ width: "18rem" }}>
+    <div className={style} style={{ width: "15rem" }}>
       <div className="card-img-poke">
       <img
         src={props.image}
@@ -30,7 +29,7 @@ export const CardPokemon = (props) => {
       </div>
       <h6>#Id:<small>{props.id} </small></h6>
       <h6>Tipo: <small>{props.type} </small></h6>
-      <div className="card-body">
+      <div className="card-button">
         <button
           className="btn btn-primary me-3"
           onClick={() => props.addToPokedex(props.pokemonList)}

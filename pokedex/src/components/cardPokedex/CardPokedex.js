@@ -14,8 +14,8 @@ export const CardPokedex = (props) => {
     navigate(`${name}`)
   }
   return (
-    <div className={style} style={{ width: "18rem" }}>
-      <div className="card-img-poke">
+    <div className={style} style={{ width: "15rem" }}>
+      <div className="card-img-pokedex">
       <img
         src={sprites.other.dream_world.front_default}
         className="card-img-top"
@@ -26,7 +26,7 @@ export const CardPokedex = (props) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5> 
       </div>
-      <div className="card-body">
+      <div className="card-button">
         <button className="btn btn-danger me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
         <button
           className="btn btn-outline-primary"
