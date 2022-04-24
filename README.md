@@ -5,8 +5,6 @@ Nome dos integrantes:
 - Douglas Vitor Farias Silva
 
 Link do Surge:
-<p>Confira o Projeto Pokedex</p> https://longing-chain.surge.sh/
-
 <p>Confira o <a href="https://longing-chain.surge.sh/" target="blank"> Projeto Pokedex</a>.</p>
 
 
