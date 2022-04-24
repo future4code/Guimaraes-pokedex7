@@ -3,6 +3,7 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 export const CardPokedex = (props) => {
+  
   const navigate = useNavigate();
 
   const { name, sprites } = props.pokemon;
@@ -26,9 +27,9 @@ export const CardPokedex = (props) => {
         <h5 className="card-title">{name}</h5> 
       </div>
       <div className="card-body">
-        <button className="btn btn-primary me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
+        <button className="btn btn-outline-primary me-3" onClick={()=> props.removeToPokedex(props.pokemon)}>Remover da Pokedex</button>
         <button
-          className="btn btn-primary"
+          className="btn btn-outline-primary"
           onClick={() => goToPokemonDetails (name)}
         >
           Ver Detalhes

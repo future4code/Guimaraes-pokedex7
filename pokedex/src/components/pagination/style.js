@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 
 export const StylePagination = styled.div`
-font-size: 1.5rem;
 
 .pagination{
     display: flex;
     list-style: none;
-    
 }
 
 .pagination li + li{
@@ -19,6 +17,8 @@ font-size: 1.5rem;
     background-color:#000;
     color: #fff;
     font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.5rem;
 }
 .pagination__item--active{
     font-weight: bold;
@@ -32,10 +32,10 @@ font-size: 1.5rem;
 
 #button-prev, #button-next{
     background-color: #CC0000;
-    width: 6rem;
     font-weight: bold;
     color: #fff;
     border-radius: 10px;
+    width: 7rem;
 
 }
 

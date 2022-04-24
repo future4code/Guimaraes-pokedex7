@@ -2,15 +2,12 @@ import React, { useContext, useState } from "react";
 import { StyledHome } from "./style";
 import { CardPokemon } from "../../components/cardPokemon/cardPokemon";
 import { Spinner } from "../../components/spinner/Spinner";
-import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { EmptyCard } from "../../components/emptyCard/emptyCard";
 import { Pagination } from "../../components/pagination/Pagination";
 import Swal from "sweetalert2"
 
-
 export const Home = () => {
-
-
 
   const[
     pokemonList,

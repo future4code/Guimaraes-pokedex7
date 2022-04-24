@@ -1,15 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import { StylePokemonDetails } from "./style";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../components/constants/urlBase";
 import { Spinner } from "../../components/spinner/Spinner";
-import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
+import { goToPokedex } from "../../routes/Coordinator";
 
 
 export const PokemonDetails = () => {
+
+  const navigate = useNavigate()
 
   const params = useParams();
 
@@ -66,7 +69,9 @@ export const PokemonDetails = () => {
         newListPokemon.push(newPokemon);
         setPokemonList(sortPokemons(newListPokemon))
         setPokedexList(pokedexList.filter((pokemon)=>pokemon.id !== newPokemon.id))
-        Swal.fire(`${newPokemon.name} foi Removido da Pokedex`);;
+        Swal.fire(`${newPokemon.name} foi Removido da Pokedex`);
+        goToPokedex(navigate)
+
       }
     }
   };

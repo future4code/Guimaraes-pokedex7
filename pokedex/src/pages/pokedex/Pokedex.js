@@ -4,7 +4,7 @@ import { StylePokedex } from "./style";
 import { Spinner } from "../../components/spinner/Spinner";
 import { sortPokemons } from "../../components/functions/functionSort/sortPokemons";
 import { EmptyCard } from "../../components/emptyCard/emptyCard";
-import { GlobalStateContext } from "../../global/globalState/GlobalStateContext";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import Swal from "sweetalert2"
 
 
