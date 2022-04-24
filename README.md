@@ -19,7 +19,7 @@ O que funciona:
 
 O que não funciona: 
 - Não conseguimos implantar uma lógica para que quando estando em alguma página, voltar diretamente à 1 pagina, clicando no botão "Voltar à Página Inicial"
-- 
+- Também não conseguimos criar as batalhas de Pokemons
 
 
 Prints Telas 
