@@ -16,7 +16,6 @@ export const CardPokemon = (props) => {
     navigate(`pokemon/${name}`)
   }
   
-  console.log("props",props)
   return (
     <div className={style} style={{ width: "18rem" }}>
       <div className="card-img-poke">
