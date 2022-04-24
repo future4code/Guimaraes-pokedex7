@@ -30,7 +30,6 @@ export const PokemonDetails = () => {
     setPokedexList,
   ] = useContext(GlobalStateContext)
 
-
   const [pokemonDetails, setPokemonDetails] = useState();
   const [buttonName, setButtonName] = useState("Adicionar à Pokedex");
   const [stateButton, setStateButton] = useState(false);
